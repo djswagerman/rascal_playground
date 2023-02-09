@@ -1,0 +1,25 @@
+state Init
+    buttonOn : Started
+
+state Started
+    buttonPauze: Paused
+    buttonPrint:
+        switch (dpi)
+            case 100: FastPrinting
+            case 3 * 90: NormalPrinting
+            case 3 * 100 * basic: SlowPrinting
+
+state Paused
+    buttonStart: Started
+
+state FastPrinting
+    printingDone: Started
+
+state NormalPrinting
+    printingDone: Started
+
+state SlowPrinting 
+    printingDone: Started
+
+state Failed
+    buttonReset: Init
